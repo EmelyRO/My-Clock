@@ -1,0 +1,15 @@
+body {
+	background-image:url("https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2d/f2/new-york-city.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+h1 {
+	font-size:50px;
+	
+}
+
+h2 {
+	font-size:35px;
+
+}
