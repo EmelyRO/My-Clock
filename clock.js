@@ -6,11 +6,6 @@ ctx.translate(radius, radius);
 radius = radius * 0.90
 drawClock();
 
-function drawClock() {
-    ctx.arc(0, 0, radius, 0 , 2*Math.PI);
-    ctx.fillStyle = "white";
-    ctx.fill();
-}
 /* end of canvas */
 
 /* Clock Face */
@@ -21,12 +16,10 @@ function drawClock() {
 
 function drawFace(ctx, radius) {
     var grad;
-
     ctx.beginPath();
     ctx.arc(0, 0, radius, 0, 2*Math.PI);
     ctx.fillStyle = 'white';
     ctx.fill();
-
     grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
     grad.addColorStop(0, '#333');
     grad.addColorStop(0.5, 'white');
@@ -34,7 +27,6 @@ function drawFace(ctx, radius) {
     ctx.strokeStyle = grad;
     ctx.lineWidth = radius*0.1;
     ctx.stroke();
-
     ctx.beginPath();
     ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
     ctx.fillStyle = '#333';
