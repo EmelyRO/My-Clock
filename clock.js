@@ -8,13 +8,14 @@ drawClock();
 
 /* end of canvas */
 
-/* Clock Face */
+
 
 function drawClock() {
     drawFace(ctx, radius);
     drawNumbers(ctx, radius);
+    drawTime(ctx, radius);
 }
-
+/* Clock Face */
 function drawFace(ctx, radius) {
     var grad;
     ctx.beginPath(); /*draws the white circle */
@@ -58,4 +59,35 @@ function drawNumbers(ctx, radius) {
     }
 }
 /*numbers*/
+
+/* clock hands*/
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;//calculates the angle of the hour hand and draws it according to the radius
+    hour=(hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+//this simply draws the hands
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+/*clock hands*/
+
 
