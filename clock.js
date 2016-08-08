@@ -4,7 +4,8 @@ var ctx = canvas.getContext("2d");
 var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 radius = radius * 0.90
-drawClock();
+//drawClock(); subsistuted for:
+setInterval(drawClock, 1000); //makes the clock actually move
 
 /* end of canvas */
 
@@ -89,5 +90,6 @@ function drawHand(ctx, pos, length, width) {
     ctx.rotate(-pos);
 }
 /*clock hands*/
+
 
 
